@@ -1,7 +1,7 @@
-diff --git a/Android.bp b/Android.bp
+diff --git a/external/f2fs-tools/Android.bp b/external/f2fs-tools/Android.bp
 index 2b09807..6e13e25 100644
---- a/Android.bp
-+++ b/Android.bp
+--- a/external/f2fs-tools/Android.bp
++++ b/external/f2fs-tools/Android.bp
 @@ -211,6 +211,7 @@ cc_binary {
          "fsck_main_src_files",
      ],
