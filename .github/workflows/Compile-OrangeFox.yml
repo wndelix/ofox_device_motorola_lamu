@@ -150,9 +150,9 @@ jobs:
           ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/${{ inputs.DEVICE_PATH }}/patches/0004-lamu-unlock-ce-with-android16-vold.patch
         git -C system/vold apply \
           ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/${{ inputs.DEVICE_PATH }}/patches/0004-lamu-unlock-ce-with-android16-vold.patch
-        git -C system/vold apply --check \
+        git -C external/f2fs-tools apply --check \
           ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/${{ inputs.DEVICE_PATH }}/patches/0009-lamu-enable-fsck-f2fs-vendor-ramdisk.patch
-        git -C system/vold apply \
+        git -C external/f2fs-tools apply \
           ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/${{ inputs.DEVICE_PATH }}/patches/0009-lamu-enable-fsck-f2fs-vendor-ramdisk.patch
 
 
