@@ -1,0 +1,17 @@
+diff --git a/data.cpp b/data.cpp
+index 25b883e7..4f02ce77 100755
+--- a/data.cpp
++++ b/data.cpp
+@@ -1298,10 +1298,11 @@ void DataManager::SetDefaultValues()
+   mData.SetValue("tw_background_thread_running", "0");
+   mData.SetValue(TW_RESTORE_FILE_DATE, "0");
+   mPersist.SetValue("tw_military_time", "1");
+-  mPersist.SetValue(TW_UNMOUNT_VENDOR, "1");
+ #ifdef AB_OTA_UPDATER
++	mPersist.SetValue(TW_UNMOUNT_VENDOR, "0");
+ 	mPersist.SetValue(TW_UNMOUNT_SYSTEM, "0");
+ #else
++	mPersist.SetValue(TW_UNMOUNT_VENDOR, "1");
+ 	mPersist.SetValue(TW_UNMOUNT_SYSTEM, "1");
+ #endif
+ 
