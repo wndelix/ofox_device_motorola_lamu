@@ -25,7 +25,7 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     adbd.recovery \
     charger.recovery \
-    e2fsck_ramdisk \
+    e2fsck.vendor_ramdisk \
     fastbootd \
     fsck.f2fs.vendor_ramdisk \
     init_second_stage.recovery \
@@ -33,6 +33,7 @@ PRODUCT_PACKAGES += \
     lamu_bootctrl12 \
     lamu_gatekeeper16 \
     ld.config.recovery.txt \
+    linker.vendor_ramdisk \
     linker.recovery \
     recovery \
     shell_and_utilities_recovery \
