@@ -25,7 +25,8 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     adbd.recovery \
     charger.recovery \
-    e2fsck_ramdisk \
+    e2fsck.vendor_ramdisk \
+    linker.vendor_ramdisk \
     fastbootd \
     fsck.f2fs.vendor_ramdisk \
     init_second_stage.recovery \
