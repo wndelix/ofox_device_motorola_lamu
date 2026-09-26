@@ -1,15 +1,23 @@
 diff --git a/data.cpp b/data.cpp
-index 25b883e7..4f02ce77 100755
+index 25b883e7..4b69f69c 100755
 --- a/data.cpp
 +++ b/data.cpp
-@@ -1298,10 +1298,11 @@ void DataManager::SetDefaultValues()
+@@ -1298,10 +1298,18 @@ void DataManager::SetDefaultValues()
    mData.SetValue("tw_background_thread_running", "0");
    mData.SetValue(TW_RESTORE_FILE_DATE, "0");
    mPersist.SetValue("tw_military_time", "1");
 -  mPersist.SetValue(TW_UNMOUNT_VENDOR, "1");
  #ifdef AB_OTA_UPDATER
-+	mPersist.SetValue(TW_UNMOUNT_VENDOR, "0");
- 	mPersist.SetValue(TW_UNMOUNT_SYSTEM, "0");
+-	mPersist.SetValue(TW_UNMOUNT_SYSTEM, "0");
++	/*
++	 * An A/B payload is written to the inactive slot, so unmounting the
++	 * mounted (active) system and vendor buys nothing -- and on devices that
++	 * hold them busy it makes TWinstall_zip abort before it reads the ZIP.
++	 * Keep both in mData rather than mPersist: a value saved in an earlier
++	 * .foxs must not be able to turn them back on.
++	 */
++	mData.SetValue(TW_UNMOUNT_VENDOR, "0");
++	mData.SetValue(TW_UNMOUNT_SYSTEM, "0");
  #else
 +	mPersist.SetValue(TW_UNMOUNT_VENDOR, "1");
  	mPersist.SetValue(TW_UNMOUNT_SYSTEM, "1");
