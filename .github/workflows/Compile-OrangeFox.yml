@@ -223,9 +223,9 @@ jobs:
 
           ### How to install
 
-          **If you already run OrangeFox or TWRP:** install the ZIP from it. Nothing else needed.
+          **Try the ZIP first.** From OrangeFox or TWRP it always works. It also installs from some ROM recoveries — tested working from the LineageOS 23.2 recovery on this device, even though the ZIP carries a TWRP-style installer signed with the AOSP test key rather than the ROM's release key.
 
-          **First install, from the ROM's own recovery:** the ZIP will not work there (it is a TWRP-format installer signed with test keys, so stock/LineageOS recovery rejects it on both counts). Flash only the recovery fragment, from fastbootd:
+          **If your recovery refuses the ZIP,** flash only the recovery fragment from fastbootd:
 
           ```
           # unzip the ZIP first, then:
