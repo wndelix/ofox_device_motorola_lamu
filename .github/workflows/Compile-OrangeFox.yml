@@ -220,4 +220,19 @@ jobs:
           Build: fox_${{ inputs.MANIFEST_BRANCH }}
           Device: [Device Tree/Branch](${{ env.DEVICE_TREE_URL }}/tree/${{ inputs.DEVICE_TREE_BRANCH }})
           Commit: Most recent [commit](${{ env.DEVICE_TREE_URL }}/commit/${{ env.COMMIT_ID }}) during building.
+
+          ### How to install
+
+          **If you already run OrangeFox or TWRP:** install the ZIP from it. Nothing else needed.
+
+          **First install, from the ROM's own recovery:** the ZIP will not work there (it is a TWRP-format installer signed with test keys, so stock/LineageOS recovery rejects it on both counts). Flash only the recovery fragment, from fastbootd:
+
+          ```
+          # unzip the ZIP first, then:
+          adb reboot fastboot
+          fastboot flash vendor_boot:recovery vendor_ramdisk_recovery.cpio
+          fastboot reboot recovery
+          ```
+
+          > **Do not** `fastboot flash vendor_boot OrangeFox*.img` unless you have no other option. `vendor_boot` also holds the ramdisk Android boots from, so flashing the whole image replaces your ROM's kernel modules with this build's copies. On a kernel built with `CONFIG_CFI_CLANG=y` and without `CONFIG_CFI_PERMISSIVE`, any byte difference there panics at first-stage module load and **your ROM stops booting**. Back up your current `vendor_boot` first if you try it.
           
